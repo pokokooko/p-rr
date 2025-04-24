@@ -1,0 +1,112 @@
+img=0
+s=0
+img1=0
+jumping=False
+jump_count=0
+y=500
+mod="первый уровень"
+def setup():
+    size(1000,1000)
+    global img,s,img1
+    img1=loadImage("ii.jpg")
+    img=loadImage("11.png")
+def draw():
+    global img,s,img1,jumping,jump_count,y,mod
+    background(100)
+    if mod=="первый уровень":
+        image(img1,0,0,1000,1000)
+        image(img, s, y, 100, 100)
+        fill(255, 99, 71)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,-100)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,-100)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        if keyPressed:
+            if key== "a":
+                s=s-4
+            if key == "d": 
+                s=s+4
+        if jumping:
+            if jump_count < 15:
+                y -= 10  # вверх
+            elif jump_count < 30:
+                y += 5  # вниз
+            else:
+                jumping = False
+                jump_count = 0
+            jump_count += 1
+    if s>=1000 and y<=700:
+        mod="второй уровень"
+    elif mod=="второй уровень":
+        image(img1,0,0,1000,1000)
+        image(img, s, y, 100, 100)
+        translate(100,0)
+        rect(0,580,100,100)
+        rect(0,585,50,30)
+        rect(3,620,50,30)
+        rect(70,580,30,50)
+        if keyPressed:
+            if key== "a":
+                s=s-4
+            if key == "d": 
+                s=s+4
+        if jumping:
+            if jump_count < 15:
+                y -= 10  # вверх
+            elif jump_count < 30:
+                y += 5  # вниз
+            else:
+                jumping = False
+                jump_count = 0
+            jump_count += 1
+def keyPressed():
+    global jumping, x
+    if key == ' ' and not jumping:
+        jumping = True
+        
+
+            
